@@ -11,6 +11,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
+
 public class nomt extends JavaPlugin implements Listener {
     ArrayList<Material> unbreakable = new ArrayList<Material>() {{
         add(Material.OAK_LOG);
@@ -56,6 +59,9 @@ public class nomt extends JavaPlugin implements Listener {
         add(Material.BASALT);
         add(Material.BLACKSTONE);
         add(Material.NETHERITE_BLOCK);
+        add(Material.RAW_COPPER_BLOCK);
+        add(Material.RAW_IRON_BLOCK);
+        add(Material.RAW_GOLD_BLOCK);
     }};
 
     @Override
@@ -76,7 +82,7 @@ public class nomt extends JavaPlugin implements Listener {
         Player player = event.getPlayer();
 
         if (unbreakable.contains(block.getType())) {
-            player.sendMessage(ChatColor.RED+"이 자원은 캘 수 없습니다!");
+            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.RED + "이 자원은 캘 수 없습니다!"));
             event.setCancelled(true);
         }
     }
