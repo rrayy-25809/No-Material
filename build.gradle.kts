@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.rrayy"
-version = "1.0"
+version = "2.0"
 description = "자원 수집을 막는 플러그인"
 
 java {
